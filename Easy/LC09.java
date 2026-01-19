@@ -2,7 +2,7 @@ package Easy;
 
 import java.util.Scanner;
 
-public class LC9 {
+public class LC09 {
 
     public boolean isPalindrome(int x) {
         String s = String.valueOf(x);
@@ -24,7 +24,7 @@ public class LC9 {
         Scanner sc = new Scanner(System.in);
         int x = sc.nextInt();
 
-        LC9 lc = new LC9();
+        LC09 lc = new LC09();
         if (lc.isPalindrome(x)) {
             System.out.println("true");
         } else {
