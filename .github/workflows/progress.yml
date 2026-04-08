@@ -1,0 +1,36 @@
+name: Update LeetCode Progress
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  update-progress:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Count problems
+        run: |
+          easy=$(find Algorithm.Easy -type d -name "LC*" | wc -l)
+          medium=$(find Medium -type d -name "LC*" | wc -l)
+          hard=$(find Hard -type d -name "LC*" | wc -l)
+
+          echo "EASY=$easy" >> $GITHUB_ENV
+          echo "MEDIUM=$medium" >> $GITHUB_ENV
+          echo "HARD=$hard" >> $GITHUB_ENV
+
+      - name: Update README
+        run: |
+          awk '/<!-- START_PROGRESS -->/{flag=1; print; print "| Difficulty | Solved |"; print "|------------|--------|"; print "| Easy       | " ENVIRON["EASY"] " |"; print "| Medium     | " ENVIRON["MEDIUM"] " |"; print "| Hard       | " ENVIRON["HARD"] " |"; next} /<!-- END_PROGRESS -->/{flag=0} !flag' README.md > temp.md
+          mv temp.md README.md
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add README.md
+          git commit -m "update progress" || echo "No changes"
+          git push
