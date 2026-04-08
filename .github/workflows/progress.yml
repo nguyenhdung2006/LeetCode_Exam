@@ -14,10 +14,10 @@ jobs:
 
       - name: Count problems
         run: |
-          easy=$(find Algorithm.Easy -type d -name "LC*" | wc -l)
-          medium=$(find Medium -type d -name "LC*" | wc -l)
-          hard=$(find Hard -type d -name "LC*" | wc -l)
-
+          easy=$(find Algorithm/Easy -maxdepth 1 -type d -name "LC*" | wc -l)
+          medium=$(find Algorithm/Medium -maxdepth 1 -type d -name "LC*" | wc -l)
+          hard=$(find Algorithm/Hard -maxdepth 1 -type d -name "LC*" | wc -l)
+      
           echo "EASY=$easy" >> $GITHUB_ENV
           echo "MEDIUM=$medium" >> $GITHUB_ENV
           echo "HARD=$hard" >> $GITHUB_ENV
