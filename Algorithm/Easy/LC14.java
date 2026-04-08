@@ -1,4 +1,4 @@
-package Easy;
+package Algorithm.Easy;
 
 public class LC14 {
 

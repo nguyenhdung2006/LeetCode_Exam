@@ -1,4 +1,4 @@
-package Easy;
+package Algorithm.Easy;
 
 import java.util.Scanner;
 
