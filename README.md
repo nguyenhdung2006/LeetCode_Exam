@@ -64,9 +64,9 @@ Each solution includes:
 <!-- START_PROGRESS -->
 | Difficulty | Solved |
 |------------|--------|
-| Easy       | 0      |
-| Medium     | 0      |
-| Hard       | 0      |
+| Easy       | 1 |
+| Medium     | 0 |
+| Hard       | 0 |
 <!-- END_PROGRESS -->
 
 ---
